@@ -46,7 +46,7 @@ src/
 
 Screenshots
 
-<img width="1621" height="757" alt="image" src="https://github.com/user-attachments/assets/8c91b831-57ff-4fde-bcd7-1d150c4bc3e4" />
+<img width="1621" height="757" alt="image" src="https://github.com/user-attachments/assets/8bde8103-e79a-4a56-8e2a-cf9e9155ceb7" />
 
 
 
