@@ -1,20 +1,31 @@
-import { useAppState } from "../state/context";
-import { ProjectStatus, PaymentStatus } from "../state/types";
+import React from 'react';
+import { useApp } from '../Context/AppContext';
+import { countPaymentStatus } from '../utils/helpers';
 
-const DashboardStats = ({ className = "" }: { className?: string }) => {
-  const { projects } = useAppState();
-
-  const totalProjects = projects.length;
-  const paidProjects = projects.filter(p => p.paymentStatus === PaymentStatus.Paid).length;
-  const unpaidProjects = totalProjects - paidProjects;
+export const DashboardStats: React.FC = () => {
+  const { state } = useApp();
+  const { paid, unpaid } = countPaymentStatus(state.projects);
 
   return (
-    <div className={`grid grid-cols-3 gap-4 ${className}`}>
-      <div className="p-4 bg-blue-100 rounded">Total Projects: {totalProjects}</div>
-      <div className="p-4 bg-green-100 rounded">Paid: {paidProjects}</div>
-      <div className="p-4 bg-red-100 rounded">Unpaid: {unpaidProjects}</div>
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+      <div className="bg-blue-50 p-4 rounded shadow">
+        <h3 className="font-semibold text-blue-900">Total Projects</h3>
+        <p className="text-2xl font-bold text-blue-700">{state.projects.length}</p>
+      </div>
+      <div className="bg-green-50 p-4 rounded shadow">
+        <h3 className="font-semibold text-green-900">Paid</h3>
+        <p className="text-2xl font-bold text-green-700">{paid}</p>
+      </div>
+      <div className="bg-red-50 p-4 rounded shadow">
+        <h3 className="font-semibold text-red-900">Unpaid</h3>
+        <p className="text-2xl font-bold text-red-700">{unpaid}</p>
+      </div>
+      <div className="bg-purple-50 p-4 rounded shadow">
+        <h3 className="font-semibold text-purple-900">Total Revenue</h3>
+        <p className="text-2xl font-bold text-purple-700">
+          ${state.payments.reduce((s, p) => s + p.amount, 0).toLocaleString()}
+        </p>
+      </div>
     </div>
   );
 };
-
-export default DashboardStats;
