@@ -3,7 +3,7 @@ import { ProjectStatus, PaymentStatus } from './State/types';
 import { useAppState, useAppDispatch } from './State/Context';
 import { filterProjectsBy, searchByName } from './utils';
 import DashboardStats from './components/DashboardStats';
-import ProjectList from './components/ProjectList';
+import ProjectList from './components/ProjectRow';
 import ClientList from './components/ClientList';
 
 const Tabs = ({
