@@ -1,4 +1,4 @@
-import { Client } from "../types";
+import { Client } from'../State/types'
 
 interface ClientCardProps {
   client: Client;

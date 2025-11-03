@@ -1,10 +1,10 @@
 import React, { useMemo, useState } from 'react';
-import { ProjectStatus, PaymentStatus } from './state/types';
-import { useAppState, useAppDispatch } from './state/context';
+import { ProjectStatus, PaymentStatus } from './State/types';
+import { useAppState, useAppDispatch } from './State/Context';
 import { filterProjectsBy, searchByName } from './utils';
 import DashboardStats from './components/DashboardStats';
 import ProjectList from './components/ProjectList';
-import ClientList from './components/Clientlist';
+import ClientList from './components/ClientList';
 
 const Tabs = ({
   children,
