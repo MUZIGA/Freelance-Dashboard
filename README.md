@@ -1,23 +1,21 @@
 #  Freelance Dashboard (React + TypeScript)
-A mini dashboard to manage **clients, projects, and payments**, built with **React + TypeScript** for type safety and clean structure.
+A type-safe React + TypeScript dashboard using Context API + useReducer.
 
----
 
 ##  Tech Stack
 - React + TypeScript  
 - Context API + useReducer  
-- Tailwind CSS *(optional)*
+- Tailwind CSS 
 
 ---
 
 ##  Features
-- Type-safe React components  
-- Global state with Context API  
-- Manage Clients, Projects & Payments  
-- Utility functions for data handling  
-- Clean and modular codebase  
+-Client & Project management
+- Payment tracking
+- Search, filter, mark paid
+- Fully typed with TypeScript
+- Reusable components
 
----
 
 ## Setup
 
@@ -34,19 +32,37 @@ npm install
 # 4. Run app
 npm run dev
 
-Folder Structure
-src/
- ├─ components/   # Reusable UI components
- ├─ context/      # Global state (Context + Reducer)
- ├─ types/        # TypeScript models
- ├─ utils/        # Helper and utility functions
- ├─ App.tsx       # Main app component
- └─ main.tsx      # Entry point
+FOLDER STRUCTURE
+freelance-dashboard/
+│
+├── public/
+│   └── index.html
+│
+├── src/
+│   ├── components/
+│   │   ├── ClientCard.tsx
+│   │   ├── ProjectRow.tsx
+│   │   └── DashboardStats.tsx
+│   │
+│   ├── context/
+│   │   └── AppContext.tsx
+│   │
+│   ├── utils/
+│   │   └── helpers.ts
+│   │
+│   ├── App.tsx
+│   ├── index.tsx
+│   └── index.css
+│
+├── package.json
+├── tsconfig.json
+├── tailwind.config.js        
+├── postcss.config.js         
+└── README.md                 
 
+SCREENSHOOT
+<img width="1837" height="893" alt="image" src="https://github.com/user-attachments/assets/8ece3432-6b24-4fd9-80c5-194d6454a384" />
 
-Screenshots
-
-<img width="1621" height="757" alt="image" src="https://github.com/user-attachments/assets/8bde8103-e79a-4a56-8e2a-cf9e9155ceb7" />
 
 
 
