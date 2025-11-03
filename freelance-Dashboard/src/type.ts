@@ -1,27 +1,27 @@
-export type ProjectStatus = "pending" | "in-progress" | "completed";
-export type PaymentStatus = "paid" | "unpaid";
+// ✅ src/types.ts
 
-
+// Type for one client
 export interface Client {
-id: string;
-name: string;
-country: string;
-email?: string; 
+  id: number;
+  name: string;
+  email: string;
+  phone?: string; // optional
 }
 
-
+// Type for one project
 export interface Project {
-id: string;
-clientId: string;
-title: string;
-budget: number;
-status: ProjectStatus;
-paymentStatus: PaymentStatus;
+  id: number;
+  clientId: number;
+  title: string;
+  budget: number;
+  status: "active" | "completed" | "pending";
 }
 
-
+// Type for one payment
 export interface Payment {
-projectId: string;
-amount: number;
-date: string; 
+  id: number;
+  projectId: number;
+  amount: number;
+  date: string;
+  status: "paid" | "unpaid";
 }
