@@ -1,31 +1,16 @@
-import { Client } from'../State/types'
+import React from 'react';
+import { Client } from '../Context/AppContext';
 
-interface ClientCardProps {
+interface Props {
   client: Client;
 }
 
-export function ClientCard({ client }: ClientCardProps) {
+export const ClientCard: React.FC<Props> = ({ client }) => {
   return (
-    <div className="p-4 border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 bg-white">
-      <h4 className="font-semibold text-lg text-gray-800">{client.name}</h4>
-      {client.country && (
-        <div className="mt-2 flex items-center text-sm text-gray-600">
-          <span className="mr-1">🌍</span>
-          <span>{client.country}</span>
-        </div>
-      )}
-      {client.email ? (
-        <a 
-          href={`mailto:${client.email}`}
-          className="mt-1 inline-block text-sm text-blue-600 hover:underline"
-        >
-          {client.email}
-        </a>
-      ) : (
-        <p className="mt-1 text-xs text-gray-400">No email provided</p>
-      )}
+    <div className="border rounded p-4 mb-3 bg-white shadow-sm">
+      <h3 className="font-semibold text-lg">{client.name}</h3>
+      <p className="text-sm text-gray-600">{client.country}</p>
+      {client.email && <p className="text-sm text-blue-600">{client.email}</p>}
     </div>
   );
-}
-
-export default ClientCard;
+};
