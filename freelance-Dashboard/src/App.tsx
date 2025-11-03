@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useApp } from './Context/AppContext';
+import { useApp } from './context/Appcontext';
 import { ClientCard } from './components/ClientCard';
 import { ProjectRow } from './components/ProjectRow';
 import { DashboardStats } from './components/DashboardStats';

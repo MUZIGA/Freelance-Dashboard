@@ -1,4 +1,4 @@
-import { Client, Project, Payment } from '../Context/AppContext';
+import { Client, Project, Payment } from '../context/Appcontext';
 
 // ───── Count paid / unpaid ─────
 export const countPaymentStatus = (projects: Project[]) => {
@@ -28,7 +28,7 @@ export const filterProjects = (
   filter:
     | { byStatus: Project['status'] }
     | { byPayment: Project['paymentStatus'] }
-    | {}
+    
 ) => {
   if ('byStatus' in filter) {
     return projects.filter(p => p.status === filter.byStatus);

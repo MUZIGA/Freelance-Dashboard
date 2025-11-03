@@ -1,5 +1,5 @@
 import React from 'react';
-import { Client } from '../Context/AppContext';
+import { Client } from '../context/Appcontext';
 
 interface Props {
   client: Client;

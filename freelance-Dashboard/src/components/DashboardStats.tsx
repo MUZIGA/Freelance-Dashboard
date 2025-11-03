@@ -1,5 +1,5 @@
 import React from 'react';
-import { useApp } from '../Context/AppContext';
+import { useApp } from '../context/Appcontext';
 import { countPaymentStatus } from '../utils/helpers';
 
 export const DashboardStats: React.FC = () => {

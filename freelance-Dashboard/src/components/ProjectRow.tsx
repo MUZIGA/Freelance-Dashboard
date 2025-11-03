@@ -1,5 +1,5 @@
 import React from 'react';
-import { Project, useApp } from '../Context/AppContext';
+import { Project, useApp } from '../context/Appcontext';
 import { findClientById } from '../utils/helpers';
 
 interface Props {
