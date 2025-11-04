@@ -1,13 +1,13 @@
 {
-  "name": "freelance-dashbord",
+  "name": "freelance-dashboard",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint ."
   },
   "dependencies": {
     "axios": "^1.13.1",

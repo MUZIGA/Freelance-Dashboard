@@ -14,7 +14,7 @@ export interface Project {
   clientId: number;
   title: string;
   budget: number;
-  status: "active" | "completed" | "pending";
+  status: "pending" | "in-progress" | "completed"; // 👈 fixed here
 }
 
 // Type for one payment

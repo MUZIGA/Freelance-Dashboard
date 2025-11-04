@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useApp } from './context/Appcontext';
 import { ClientCard } from './components/ClientCard';
 import { ProjectRow } from './components/ProjectRow';
@@ -13,22 +13,23 @@ function App() {
   const { state } = useApp();
   const [clientSearch, setClientSearch] = useState('');
   const [projectSearch, setProjectSearch] = useState('');
-  const [statusFilter, setStatusFilter] = useState<
-    '' | 'pending' | 'in-progress' | 'completed'
-  >('');
-  const [paymentFilter, setPaymentFilter] = useState<'' | 'paid' | 'unpaid'>('');
+  const [statusFilter, setStatusFilter] = useState('');
+  const [paymentFilter, setPaymentFilter] = useState('');
 
-  // Filtered data
+  // ───── Filtered Data ─────
   const filteredClients = searchClients(state.clients, clientSearch);
-  const filteredProjects = filterProjects(
-    searchProjects(state.projects, projectSearch),
-    statusFilter
-      ? { byStatus: statusFilter }
-      : paymentFilter
-      ? { byPayment: paymentFilter }
-      : {}
-  );
 
+  const projectResults = searchProjects(state.projects, projectSearch);
+  let filteredProjects = projectResults;
+
+ if (statusFilter === "pending" || statusFilter === "in-progress" || statusFilter === "completed") {
+  filteredProjects = filterProjects(projectResults, { byStatus: statusFilter });
+} else if (paymentFilter === "paid" || paymentFilter === "unpaid") {
+  filteredProjects = filterProjects(projectResults, { byPayment: paymentFilter });
+}
+
+
+  // ───── Return JSX ─────
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <header className="mb-8">
@@ -71,9 +72,7 @@ function App() {
           />
           <select
             value={statusFilter}
-            onChange={e =>
-              setStatusFilter(e.target.value as typeof statusFilter)
-            }
+            onChange={e => setStatusFilter(e.target.value)}
             className="border rounded px-3 py-2"
           >
             <option value="">All Statuses</option>
@@ -83,9 +82,7 @@ function App() {
           </select>
           <select
             value={paymentFilter}
-            onChange={e =>
-              setPaymentFilter(e.target.value as typeof paymentFilter)
-            }
+            onChange={e => setPaymentFilter(e.target.value)}
             className="border rounded px-3 py-2"
           >
             <option value="">All Payments</option>
